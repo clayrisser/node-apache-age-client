@@ -6,6 +6,10 @@ This client was adapted from the apache age viewer.
 
 https://github.com/apache/age-viewer
 
+You can learn more about Apache Age at the following link.
+
+https://age.apache.org
+
 ## Setup
 
 ```sh
@@ -19,7 +23,7 @@ import ApacheAgeClient from "apache-age-client";
 
 (async () => {
   const client = ApacheAgeClient.connect({
-    database: "some-database",
+    database: "postgres",
     graph: "some-graph",
     host: "localhost",
     password: "postgres",

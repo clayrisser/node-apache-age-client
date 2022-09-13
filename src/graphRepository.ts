@@ -4,7 +4,7 @@
  * File Created: 13-09-2022 05:34:30
  * Author: Apache Software Foundation
  * -----
- * Last Modified: 13-09-2022 07:42:19
+ * Last Modified: 13-09-2022 07:56:39
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -47,7 +47,6 @@ export class GraphRepository {
     password,
     flavor,
   }: ConnectionInfo = {}) {
-    if (!flavor) throw new Error("Flavor is required.");
     this._host = host;
     this._port = port;
     this._database = database;

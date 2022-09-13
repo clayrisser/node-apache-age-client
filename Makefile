@@ -3,7 +3,7 @@
 # File Created: 13-09-2022 04:18:52
 # Author: Clay Risser
 # -----
-# Last Modified: 13-09-2022 07:10:42
+# Last Modified: 13-09-2022 07:53:32
 # Modified By: Clay Risser
 # -----
 # Risser Labs LLC (c) Copyright 2022
@@ -102,6 +102,10 @@ clean: ##
 .PHONY: publish
 publish: ~build
 	@$(NPM) publish
+
+.PHONY: docker/%
+docker/%:
+	@$(MAKE) -sC docker $(subst docker/,,$@) ARGS=$(ARGS)
 
 -include $(call actions)
 
