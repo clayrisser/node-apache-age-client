@@ -3,7 +3,7 @@
 # File Created: 13-09-2022 04:18:52
 # Author: Clay Risser
 # -----
-# Last Modified: 13-09-2022 04:47:28
+# Last Modified: 13-09-2022 07:10:42
 # Modified By: Clay Risser
 # -----
 # Risser Labs LLC (c) Copyright 2022
@@ -98,6 +98,10 @@ clean: ##
 		$(MKPM_GIT_CLEAN_FLAGS) \
 		$(YARN_GIT_CLEAN_FLAGS) \
 		$(NOFAIL)
+
+.PHONY: publish
+publish: ~build
+	@$(NPM) publish
 
 -include $(call actions)
 
