@@ -1,7 +1,7 @@
 {
   "name": "apache-age-client",
   "description": "nodejs client for apache age",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Risser Labs LLC <risserlabs@gmail.com> (risserlabs.com)",
   "sideEffects": false,
   "keywords": [],

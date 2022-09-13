@@ -4,7 +4,7 @@
  * File Created: 13-09-2022 05:50:34
  * Author: Apache Software Foundation
  * -----
- * Last Modified: 13-09-2022 07:05:37
+ * Last Modified: 13-09-2022 07:29:23
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -22,11 +22,13 @@
  * limitations under the License.
  */
 
-import { PoolClient } from "pg";
-import { getQuery } from "../tools/sqlFlavorManager";
 import * as util from "util";
+import { PoolClient } from "pg";
+import { ConnectionInfo } from "../types";
 import { GraphRepository } from "../graphRepository";
-import { Edge, EdgeResult, ConnectionInfo } from "../types";
+import { getQuery } from "../tools/sqlFlavorManager";
+
+const logger = console;
 
 export class DatabaseService {
   private _graphRepository: GraphRepository | null;
@@ -141,16 +143,15 @@ export class DatabaseService {
         true
       );
       if ((client as PoolClient).release) (client as PoolClient).release();
-    } catch (e) {
+    } catch (err) {
       this._graphRepository = null;
-      throw e;
+      throw err;
     }
-    return true;
   }
 
   async disconnectDatabase() {
     if (!this._graphRepository) {
-      console.log("already disconnected");
+      logger.warn("already disconnected");
       return false;
     } else {
       const isRelease = await this._graphRepository.releaseConnection();
@@ -158,7 +159,7 @@ export class DatabaseService {
         this._graphRepository = null;
         return true;
       } else {
-        console.log("failed to release connection");
+        logger.error("failed to release connection");
         return false;
       }
     }
@@ -185,19 +186,5 @@ export class DatabaseService {
 
   isConnected() {
     return !!this._graphRepository;
-  }
-
-  get graphRepository() {
-    return this._graphRepository;
-  }
-
-  convertEdge({ label, id, start, end, props }: EdgeResult): Edge {
-    return {
-      end: `${end.oid}.${end.id}`,
-      id: `${id.oid}.${id.id}`,
-      label: label,
-      properties: props,
-      start: `${start.oid}.${start.id}`,
-    };
   }
 }

@@ -4,7 +4,7 @@
  * File Created: 13-09-2022 05:34:30
  * Author: Apache Software Foundation
  * -----
- * Last Modified: 13-09-2022 07:05:03
+ * Last Modified: 13-09-2022 07:42:19
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -54,7 +54,7 @@ export class GraphRepository {
     this._graph = graph;
     this._user = user;
     this._password = password;
-    this.flavor = flavor;
+    this.flavor = flavor || flavors.AGE;
   }
 
   static async getConnection(

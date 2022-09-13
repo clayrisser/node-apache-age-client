@@ -4,7 +4,7 @@
  * File Created: 13-09-2022 05:50:34
  * Author: Apache Software Foundation
  * -----
- * Last Modified: 13-09-2022 07:01:22
+ * Last Modified: 13-09-2022 07:27:40
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -54,7 +54,7 @@ export class CypherService {
     }
   }
 
-  createResult(resultSet: QueryResult) {
+  private createResult(resultSet: QueryResult) {
     let result;
     let targetItem = resultSet;
     if (Array.isArray(resultSet)) {
@@ -70,19 +70,19 @@ export class CypherService {
     return result;
   }
 
-  _getColumns(resultSet: QueryResult) {
+  private _getColumns(resultSet: QueryResult) {
     return resultSet.fields.map((field) => field.name);
   }
 
-  _getRowCount(resultSet: QueryResult) {
+  private _getRowCount(resultSet: QueryResult) {
     return resultSet.rowCount;
   }
 
-  _getCommand(resultSet: QueryResult) {
+  private _getCommand(resultSet: QueryResult) {
     return resultSet.command;
   }
 
-  _convertRowToResult(resultSet: QueryResult): Result[] {
+  private _convertRowToResult(resultSet: QueryResult): Result[] {
     return resultSet.rows.map((row) => {
       let convertedObject: Result = {};
       for (let k in row) {
@@ -105,7 +105,7 @@ export class CypherService {
     });
   }
 
-  convertPath({ vertices, edges }: PathResult): Path {
+  private convertPath({ vertices, edges }: PathResult): Path {
     const result: Path = [];
     for (let idx in vertices) {
       result.push(this.convertVertex(vertices[idx]));
@@ -116,7 +116,7 @@ export class CypherService {
     return result;
   }
 
-  convertEdge({ label, id, start, end, props }: EdgeResult): Edge {
+  private convertEdge({ label, id, start, end, props }: EdgeResult): Edge {
     return {
       label: label,
       id: `${id.oid}.${id.id}`,
@@ -126,7 +126,7 @@ export class CypherService {
     };
   }
 
-  convertVertex({ label, id, props }: VertexResult): Vertex {
+  private convertVertex({ label, id, props }: VertexResult): Vertex {
     return {
       label: label,
       id: `${id.oid}.${id.id}`,
