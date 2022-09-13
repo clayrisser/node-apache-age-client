@@ -1,10 +1,10 @@
 /**
- * File: /src/index.ts
+ * File: /sql/get_role/default.sql
  * Project: apache-age-client
- * File Created: 13-09-2022 04:18:52
+ * File Created: 13-09-2022 06:58:54
  * Author: Apache Software Foundation
  * -----
- * Last Modified: 13-09-2022 07:01:22
+ * Last Modified: 13-09-2022 07:01:21
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -22,7 +22,11 @@
  * limitations under the License.
  */
 
-export * from "./config";
-export * from "./graphRepository";
-export * from "./services";
-export * from "./types";
+SELECT
+    usename as user_name,
+    CASE
+        WHEN usesuper THEN CAST('admin' AS pg_catalog.text)
+        ELSE CAST('user' AS pg_catalog.text)
+    END role_name
+FROM pg_catalog.pg_user
+WHERE usename = $1

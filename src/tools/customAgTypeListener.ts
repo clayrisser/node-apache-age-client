@@ -2,9 +2,9 @@
  * File: /src/tools/customAgTypeListener.ts
  * Project: apache-age-client
  * File Created: 13-09-2022 04:45:20
- * Author: Clay Risser
+ * Author: Apache Software Foundation
  * -----
- * Last Modified: 13-09-2022 05:14:20
+ * Last Modified: 13-09-2022 07:01:22
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022

@@ -1,10 +1,10 @@
 /**
- * File: /src/index.ts
+ * File: /sql/property_keys/AGE.sql
  * Project: apache-age-client
- * File Created: 13-09-2022 04:18:52
+ * File Created: 13-09-2022 06:58:54
  * Author: Apache Software Foundation
  * -----
- * Last Modified: 13-09-2022 07:01:22
+ * Last Modified: 13-09-2022 07:00:45
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -22,7 +22,4 @@
  * limitations under the License.
  */
 
-export * from "./config";
-export * from "./graphRepository";
-export * from "./services";
-export * from "./types";
+select * from (SELECT null as key, null as keytype) A limit 0;

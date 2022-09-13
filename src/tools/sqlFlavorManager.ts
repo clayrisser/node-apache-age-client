@@ -2,9 +2,9 @@
  * File: /src/tools/sqlFlavorManager.ts
  * Project: apache-age-client
  * File Created: 13-09-2022 04:45:20
- * Author: Clay Risser
+ * Author: Apache Software Foundation
  * -----
- * Last Modified: 13-09-2022 04:52:15
+ * Last Modified: 13-09-2022 07:03:37
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -31,11 +31,9 @@ const sqlBasePath = path.join(__dirname, "../../sql");
 export function getQuery(name?: string, flavor = flavors.AGE) {
   const defaultSqlPath = path.join(sqlBasePath, `./${name}/default.sql`);
   let sqlPath = path.join(sqlBasePath, `./${name}/${flavor}.sql`);
-  if (fs.existsSync(defaultSqlPath)) {
-    sqlPath = defaultSqlPath;
-  }
+  if (fs.existsSync(defaultSqlPath)) sqlPath = defaultSqlPath;
   if (!fs.existsSync(sqlPath)) {
-    throw new Error(`SQL is not exist, name = ${name}`);
+    throw new Error(`sql does not exist for name ${name}`);
   }
   return fs.readFileSync(sqlPath, "utf8");
 }

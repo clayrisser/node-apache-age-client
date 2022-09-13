@@ -2,9 +2,9 @@
  * File: /src/graphRepository.ts
  * Project: apache-age-client
  * File Created: 13-09-2022 05:34:30
- * Author: Clay Risser
+ * Author: Apache Software Foundation
  * -----
- * Last Modified: 13-09-2022 06:41:22
+ * Last Modified: 13-09-2022 07:05:03
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -86,7 +86,7 @@ export class GraphRepository {
     query: string,
     params: (string | undefined)[] = []
   ): Promise<QueryResult> {
-    let client = await this.getConnection();
+    const client = await this.getConnection();
     let result = null;
     try {
       result = await client.query(query, params);

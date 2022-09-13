@@ -1,10 +1,10 @@
 /**
- * File: /src/index.ts
+ * File: /sql/meta_edges/AGE.sql
  * Project: apache-age-client
- * File Created: 13-09-2022 04:18:52
+ * File Created: 13-09-2022 06:58:54
  * Author: Apache Software Foundation
  * -----
- * Last Modified: 13-09-2022 07:01:22
+ * Last Modified: 13-09-2022 07:01:21
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -22,7 +22,24 @@
  * limitations under the License.
  */
 
-export * from "./config";
-export * from "./graphRepository";
-export * from "./services";
-export * from "./types";
+SELECT
+    label,
+    count(label):: INTEGER as cnt
+FROM (
+        SELECT
+            ag_catalog._label_name(oid, v):: text as label
+        from
+            cypher(
+                '%s',
+                $$ MATCH () - [V] - ()
+                RETURN
+                    id(V) $$
+            ) as (V agtype), (
+                SELECT oid
+                FROM
+                    ag_catalog.ag_graph
+                where
+                    name = '%s'
+            ) as oid
+    ) b
+GROUP BY b.label;

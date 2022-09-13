@@ -1,10 +1,10 @@
 /**
- * File: /src/index.ts
+ * File: /sql/graph_labels/AGE.sql
  * Project: apache-age-client
- * File Created: 13-09-2022 04:18:52
+ * File Created: 13-09-2022 06:58:54
  * Author: Apache Software Foundation
  * -----
- * Last Modified: 13-09-2022 07:01:22
+ * Last Modified: 13-09-2022 07:01:21
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -22,7 +22,8 @@
  * limitations under the License.
  */
 
-export * from "./config";
-export * from "./graphRepository";
-export * from "./services";
-export * from "./types";
+SELECT
+    oid as la_oid,
+    name as la_name,
+    kind as la_kind
+FROM ag_catalog.ag_label;

@@ -115,7 +115,7 @@
   "psi-header.changes-tracking": {
     "autoHeader": "autoSave",
     "enforceHeader": true,
-    "include": ["javascript", "typescript", "yaml", "makefile"],
+    "include": ["javascript", "typescript", "yaml", "makefile", "sql"],
     "includeGlob": ["**/*.g4"],
     "isActive": true,
     "modAuthor": "Modified By:",

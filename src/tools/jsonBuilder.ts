@@ -2,9 +2,9 @@
  * File: /src/tools/jsonBuilder.ts
  * Project: apache-age-client
  * File Created: 13-09-2022 05:24:37
- * Author: Clay Risser
+ * Author: Apache Software Foundation
  * -----
- * Last Modified: 13-09-2022 05:41:31
+ * Last Modified: 13-09-2022 07:01:22
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
