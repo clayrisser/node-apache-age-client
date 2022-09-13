@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "mikestead.dotenv",
+    "psioniq.psi-header",
+    "rubymaniac.vscode-direnv",
+    "streetsidesoftware.code-spell-checker",
+    "amodio.tsl-problem-matcher",
+    "dbaeumer.vscode-eslint"
+  ]
+}
