@@ -35,9 +35,8 @@
     "@babel/runtime": "^7.19.0",
     "antlr4": "4.9.3",
     "core-js": "^3.25.1",
-    "pg": "^8.8.0",
-    "pg-types": "^4.0.0",
-    "reflect-metadata": "^0.1.13"
+    "pg": "^8.5.1",
+    "pg-types": "^4.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",

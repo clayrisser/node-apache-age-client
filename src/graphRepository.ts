@@ -4,7 +4,7 @@
  * File Created: 13-09-2022 05:34:30
  * Author: Clay Risser
  * -----
- * Last Modified: 13-09-2022 05:46:16
+ * Last Modified: 13-09-2022 06:41:22
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -22,21 +22,11 @@
  * limitations under the License.
  */
 
-import pg, { PoolConfig, Pool } from "pg";
+import pg, { PoolConfig, Pool, PoolClient, QueryResult } from "pg";
 import types from "pg-types";
 import { flavors, pg as pgConfig } from "./config";
 import { setAgeTypes } from "./tools/ageParser";
-import { Flavor } from "./types";
-
-export interface ConnectionArgs {
-  database?: string;
-  flavor?: Flavor;
-  graph?: string;
-  host?: string;
-  password?: string;
-  port?: number;
-  user?: string;
-}
+import { Flavor, ConnectionInfo } from "./types";
 
 export class GraphRepository {
   flavor: Flavor;
@@ -56,7 +46,7 @@ export class GraphRepository {
     user,
     password,
     flavor,
-  }: ConnectionArgs = {}) {
+  }: ConnectionInfo = {}) {
     if (!flavor) throw new Error("Flavor is required.");
     this._host = host;
     this._port = port;
@@ -68,9 +58,9 @@ export class GraphRepository {
   }
 
   static async getConnection(
-    { database, flavor, host, password, port, user }: ConnectionArgs = {},
+    { database, flavor, host, password, port, user }: ConnectionInfo = {},
     closeConnection = true
-  ) {
+  ): Promise<pg.Client | PoolClient> {
     const client = new pg.Client({
       user,
       password,
@@ -84,10 +74,7 @@ export class GraphRepository {
     } else {
       throw new Error(`unknown flavor ${flavor}`);
     }
-
-    if (closeConnection === true) {
-      await client.end();
-    }
+    if (closeConnection === true) await client.end();
     return client;
   }
 
@@ -95,7 +82,10 @@ export class GraphRepository {
     return new pg.Pool(poolConnectionConfig);
   }
 
-  async execute(query: string, params = []) {
+  async execute(
+    query: string,
+    params: (string | undefined)[] = []
+  ): Promise<QueryResult> {
     let client = await this.getConnection();
     let result = null;
     try {
@@ -161,5 +151,9 @@ export class GraphRepository {
       graph: this._graph,
       flavor: this.flavor,
     };
+  }
+
+  get graph() {
+    return this._graph;
   }
 }

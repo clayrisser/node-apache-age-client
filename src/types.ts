@@ -4,7 +4,7 @@
  * File Created: 13-09-2022 05:28:37
  * Author: Clay Risser
  * -----
- * Last Modified: 13-09-2022 05:29:50
+ * Last Modified: 13-09-2022 06:24:03
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -25,3 +25,60 @@
 export type AgeRecord = Record<string, any>;
 
 export type Flavor = "AGE";
+
+export interface PathResult {
+  edges: EdgeResult[];
+  end: IdResult;
+  len: number;
+  start: IdResult;
+  vertices: VertexResult[];
+}
+
+export interface VertexResult {
+  id: IdResult;
+  label: string;
+  props: Record<string, any>;
+}
+
+export interface EdgeResult {
+  end: IdResult;
+  id: IdResult;
+  label: string;
+  props: Properties;
+  start: IdResult;
+}
+
+export interface IdResult {
+  id: string;
+  oid: string;
+}
+
+export interface Edge {
+  end: string;
+  id: string;
+  label: string;
+  properties: Record<string, any>;
+  start: string;
+}
+
+export interface Vertex {
+  label: string;
+  id: string;
+  properties: Properties;
+}
+
+export type Properties = Record<string, any>;
+
+export type Path = (Vertex | Edge)[];
+
+export type Result = Record<string, Vertex | Edge | Path | null>;
+
+export interface ConnectionInfo {
+  database?: string;
+  flavor?: Flavor;
+  graph?: string;
+  host?: string;
+  password?: string;
+  port?: number;
+  user?: string;
+}

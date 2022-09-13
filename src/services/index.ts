@@ -1,10 +1,10 @@
 /**
- * File: /src/index.ts
+ * File: /src/services/index.ts
  * Project: apache-age-client
- * File Created: 13-09-2022 04:18:52
+ * File Created: 13-09-2022 06:44:24
  * Author: Clay Risser
  * -----
- * Last Modified: 13-09-2022 06:45:00
+ * Last Modified: 13-09-2022 06:44:37
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -22,7 +22,5 @@
  * limitations under the License.
  */
 
-export * from "./config";
-export * from "./graphRepository";
-export * from "./services";
-export * from "./types";
+export * from "./cypherService";
+export * from "./databaseService";
