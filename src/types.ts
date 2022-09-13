@@ -1,10 +1,10 @@
 /**
- * File: /src/config.ts
+ * File: /src/types.ts
  * Project: apache-age-client
- * File Created: 13-09-2022 04:43:23
+ * File Created: 13-09-2022 05:28:37
  * Author: Clay Risser
  * -----
- * Last Modified: 13-09-2022 05:31:11
+ * Last Modified: 13-09-2022 05:29:50
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -22,12 +22,6 @@
  * limitations under the License.
  */
 
-export const flavors = {
-  AGE: "AGE" as "AGE",
-};
+export type AgeRecord = Record<string, any>;
 
-export const pg = {
-  connectionTimeoutMillis: 2000,
-  idleTimeoutMillis: 30000,
-  max: 10,
-};
+export type Flavor = "AGE";
