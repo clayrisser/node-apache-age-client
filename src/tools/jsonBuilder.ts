@@ -4,7 +4,7 @@
  * File Created: 13-09-2022 05:24:37
  * Author: Clay Risser
  * -----
- * Last Modified: 13-09-2022 05:32:34
+ * Last Modified: 13-09-2022 05:41:31
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -22,6 +22,7 @@
  * limitations under the License.
  */
 
+import { Client } from "pg";
 import { AgeRecord, Flavor } from "../types";
 import { flavors } from "../config";
 
@@ -45,7 +46,7 @@ export function jsonStringify(record: AgeRecord, flavor = flavors.AGE) {
 }
 
 export async function createVertex(
-  client: any,
+  client: Client,
   graphPathStr: string,
   label: string,
   record: AgeRecord,
@@ -60,7 +61,7 @@ export async function createVertex(
 }
 
 async function ageCreateVertex(
-  client: any,
+  client: Client,
   graphPathStr: string,
   createQ: string
 ) {
@@ -71,7 +72,7 @@ async function ageCreateVertex(
 }
 
 export async function createEdge(
-  client: any,
+  client: Client,
   label: string,
   record: AgeRecord,
   graphPathStr: string,
@@ -96,7 +97,7 @@ export async function createEdge(
 }
 
 async function AGECreateEdge(
-  client: any,
+  client: Client,
   graphPathStr: string,
   createQ: string
 ) {

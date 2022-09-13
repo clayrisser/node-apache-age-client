@@ -4,7 +4,7 @@
  * File Created: 13-09-2022 04:45:20
  * Author: Clay Risser
  * -----
- * Last Modified: 13-09-2022 05:09:47
+ * Last Modified: 13-09-2022 05:45:40
  * Modified By: Clay Risser
  * -----
  * Risser Labs LLC (c) Copyright 2022
@@ -23,9 +23,10 @@
  */
 
 import antlr4 from "antlr4";
+import { PoolClient, Client } from "pg";
 import AgtypeLexer from "./AgtypeLexer";
 import AgtypeParser from "./AgtypeParser";
-import CustomAgTypeListener from "./customAgTypeListener";
+import { CustomAgTypeListener } from "./customAgTypeListener";
 
 export function agTypeParse(input: string) {
   const chars = new antlr4.InputStream(input);
@@ -39,7 +40,7 @@ export function agTypeParse(input: string) {
   return printer.getResult();
 }
 
-export async function setAgeTypes(client: any, types: any) {
+export async function setAgeTypes(client: PoolClient | Client, types: any) {
   await client.query(`
         CREATE EXTENSION IF NOT EXISTS age;
         LOAD 'age';
