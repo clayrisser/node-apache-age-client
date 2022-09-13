@@ -1,3 +1,27 @@
+/**
+ * File: /.eslintrc.js
+ * Project: apache-age-client
+ * File Created: 13-09-2022 04:18:52
+ * Author: Clay Risser
+ * -----
+ * Last Modified: 13-09-2022 04:47:09
+ * Modified By: Clay Risser
+ * -----
+ * Risser Labs LLC (c) Copyright 2022
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 const fs = require("fs");
 
 const cspell = JSON.parse(fs.readFileSync(".vscode/settings.json").toString())[
@@ -111,29 +135,24 @@ module.exports = {
           "**/*.spec.js",
           "**/*.spec.jsx",
           "**/*.spec.ts",
-          "**/*.spec.tsx",
           "**/*.test.js",
-          "**/*.test.jsx",
           "**/*.test.ts",
-          "**/*.test.tsx",
           "tests/**/*.js",
-          "tests/**/*.jsx",
           "tests/**/*.ts",
-          "tests/**/*.tsx",
         ],
       },
     ],
   },
   overrides: [
     {
-      files: ["*.test.js", "*.test.jsx", "*.test.ts", "*.test.tsx"],
+      files: ["*.test.js", "*.test.ts"],
       env: {
         jest: true,
       },
       plugins: ["jest"],
     },
     {
-      files: ["*.ts", "*.tsx"],
+      files: ["*.ts"],
       rules: {
         "no-unused-vars": "off",
       },
@@ -142,7 +161,7 @@ module.exports = {
   settings: {
     "import/resolver": {
       node: {
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        extensions: [".js", ".ts"],
       },
     },
   },

@@ -1,12 +1,13 @@
 {
   "recommendations": [
+    "amodio.tsl-problem-matcher",
+    "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
+    "mike-lischke.vscode-antlr4",
     "mikestead.dotenv",
     "psioniq.psi-header",
     "rubymaniac.vscode-direnv",
-    "streetsidesoftware.code-spell-checker",
-    "amodio.tsl-problem-matcher",
-    "dbaeumer.vscode-eslint"
+    "streetsidesoftware.code-spell-checker"
   ]
 }

@@ -1,6 +1,7 @@
 # mkpm
-/lib
+.antlr
 /esm
+/lib
 
 # nodejs
 bower_components

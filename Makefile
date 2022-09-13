@@ -3,7 +3,7 @@
 # File Created: 13-09-2022 04:18:52
 # Author: Clay Risser
 # -----
-# Last Modified: 13-09-2022 04:35:04
+# Last Modified: 13-09-2022 04:47:28
 # Modified By: Clay Risser
 # -----
 # Risser Labs LLC (c) Copyright 2022
@@ -67,12 +67,12 @@ BUILD_TARGET := lib/index.js
 lib/index.js:
 	@$(call reset,build)
 $(ACTION)/build: $(call git_deps,\.([jt]sx?)$$)
-	@$(BABEL) --env-name umd src -d lib --extensions '.js,.jsx,.ts,.tsx' --source-maps
-	@$(BABEL) --env-name esm src -d esm --extensions '.js,.jsx,.ts,.tsx' --source-maps
+	@$(BABEL) --env-name umd src -d lib --extensions '.js,.ts' --source-maps
+	@$(BABEL) --env-name esm src -d esm --extensions '.js,.ts' --source-maps
 	@$(TSC) -p tsconfig.build.json -d
 	@$(call done,build)
 
-COLLECT_COVERAGE_FROM := ["src/**/*.{js,jsx,ts,tsx}"]
+COLLECT_COVERAGE_FROM := ["src/**/*.{js,ts}"]
 .PHONY: coverage +coverage
 coverage: | ~lint +coverage
 +coverage:

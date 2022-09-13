@@ -44,15 +44,10 @@
       ],
       "ignore": [
         "**/*.d.ts",
-        "**/*.d.tsx",
         "**/*.spec.js",
-        "**/*.spec.jsx",
         "**/*.spec.ts",
-        "**/*.spec.tsx",
         "**/*.test.js",
-        "**/*.test.jsx",
         "**/*.test.ts",
-        "**/*.test.tsx",
         "src/@types"
       ]
     },
@@ -70,15 +65,10 @@
       ],
       "ignore": [
         "**/*.d.ts",
-        "**/*.d.tsx",
         "**/*.spec.js",
-        "**/*.spec.jsx",
         "**/*.spec.ts",
-        "**/*.spec.tsx",
         "**/*.test.js",
-        "**/*.test.jsx",
         "**/*.test.ts",
-        "**/*.test.tsx",
         "src/@types"
       ]
     }
