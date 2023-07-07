@@ -1,5 +1,6 @@
 # apache-age-client
 
+![](assets/node-apache-age-client.png)
 > nodejs client for apache age
 
 This client was adapted from the apache age viewer.
